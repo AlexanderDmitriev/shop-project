@@ -1,4 +1,4 @@
-package uits.jv.shop;
+package uits.jv.shop.config;
 
 import java.util.Properties;
 import javax.sql.DataSource;
