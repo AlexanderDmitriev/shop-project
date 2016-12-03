@@ -3,10 +3,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Profile : ${email}</title>
+        <title>Admin : ${email}</title>
     </head>
     <body>
-        <h1>Hello USER : ${email}</h1>
+        <h1>Hello ADMIN : ${email}</h1>
+        <a href="/shoptest/logout">Logout</a>
     </body>
-    <a href="/shoptest/logout">Logout</a>
 </html>

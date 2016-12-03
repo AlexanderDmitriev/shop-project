@@ -11,9 +11,6 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-//import org.springframework.security.core.context.SecurityContextHolder;
-//import org.springframework.security.core.session.SessionRegistry;
-//import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -106,8 +103,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         http.authorizeRequests()
                 .antMatchers("/static/**").permitAll()
                 .antMatchers("/me/**").access("hasRole('USER')")
+                .antMatchers("/admin/**").access("hasRole('ADMIN')")
                 .and().formLogin().loginPage("/login").permitAll()
-                .defaultSuccessUrl("/me", false)
+                .defaultSuccessUrl("/check", false)
                 .usernameParameter("email")
                 .and().logout().logoutUrl("/logout").permitAll();
         http.formLogin();
